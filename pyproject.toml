@@ -1,0 +1,20 @@
+[project]
+name = "oslo-electricity"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "folium>=0.20.0",
+    "geopandas>=1.0.1",
+    "loadenv>=0.1.1",
+    "matplotlib>=3.9.4",
+    "osmpythontools>=0.3.6",
+    "pandas>=2.3.3",
+    "pvlib>=0.13.0",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+    "scipy>=1.13.1",
+    "seaborn>=0.13.2",
+    "topojson>=1.10",
+]
