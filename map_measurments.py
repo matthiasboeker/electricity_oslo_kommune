@@ -5,9 +5,6 @@ import folium
 import topojson as tp
 from pathlib import Path
 
-
-
-
 TOP_CATEGORIES = [
     "Belysning",
     "Trafikkstyring",
@@ -48,11 +45,6 @@ def load_and_prepare_electricity_data(csv_path: Path) -> pd.DataFrame:
     )
 
     return df_locations
-
-
-# -----------------------------
-# Map creation helpers
-# -----------------------------
 
 def create_base_map() -> folium.Map:
     """Create a Folium base map centered on Oslo."""

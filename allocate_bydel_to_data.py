@@ -5,9 +5,7 @@ from pathlib import Path
 from shapely.geometry import Point
 import pandas as pd
 
-def read_csv_data(file_path: Path) -> pd.DataFrame:
-    """Read electricity consumption data from a CSV file."""
-    return pd.read_csv(file_path, engine='python')
+from utils.loading_funcs import read_csv_data
 
 def load_in_bydeler_geopandas(path_to_data: Path) -> gpd.GeoDataFrame:
     with open(path_to_data, 'r', encoding='utf-8') as f:
@@ -56,7 +54,6 @@ def main():
     path_to_electricity_file = Path(__file__).parent / 'data' / 'stromforbruk_with_geo.csv'
     path_to_bydel_topojson = Path(__file__).parent / 'data' / 'Bydeler_Oslo_m_marka.json'
     electricity_df = read_csv_data(path_to_electricity_file)
-    print(electricity_df.head())
     bydel_gdf = load_in_bydeler_geopandas(path_to_bydel_topojson)
     df = allocate_bydel_to_data(electricity_df, bydel_gdf)
     df.to_csv(Path(__file__).parent / 'data' / 'stromforbruk_with_bydel.csv', index=False)
